@@ -1,5 +1,9 @@
+import { Slideshow } from "../components/SlideShow/SlideShow";
+
 export const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <Slideshow/>
+    </>
+  );
+};

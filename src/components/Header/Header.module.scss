@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   background-color: $black;
+  position: relative;
 
   div:nth-of-type(1) {
     @extend %odibee;

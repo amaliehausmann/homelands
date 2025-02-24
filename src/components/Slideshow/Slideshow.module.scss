@@ -1,0 +1,15 @@
+@use '../../styles/placeholders' as *;
+@use '../../styles/variables' as *;
+
+.slideshow {
+  img {
+    width: 100%;
+  }
+  p{
+    text-align: center;
+  }
+}
+
+.negativeMargin{
+  margin-bottom: -3vw;
+}
