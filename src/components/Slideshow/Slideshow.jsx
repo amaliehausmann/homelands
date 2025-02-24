@@ -34,6 +34,7 @@ export const Slideshow = ({ custom }) => {
   return (
     <section className={`${style.slideshow} ${style[custom]}`}>
       <img src={imageURLs[currentImage]} alt={`Slide ${currentImage + 1}`} />
+      <div></div>
     </section>
   );
 };

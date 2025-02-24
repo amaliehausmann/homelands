@@ -1,4 +1,5 @@
 @use "../../styles/variables" as *;
+@use "../../styles/placeholders" as *;
 
 // Base Styling
 .cardStyling {
@@ -8,236 +9,64 @@
 }
 
 // Custom Styling
-.threeCards {
-  background-color: $white;
+.listings {
+  padding: 1.5vw;
+  background-color: rgba(255, 255, 255, 0.667);
+  border-radius: 5px;
   cursor: pointer;
-  height: 40vh;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  filter: drop-shadow(5px 5px 5px #00000015);
+  border: 1px solid $grey;
+  @extend %boxshadow;
 
-  h3 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
-    transition: white-space 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+
+  &:hover{
+    background-color: rgba(121, 89, 136, 0.361);
+    transition: all 0.5s ease;
+    margin: -0.5vw;
   }
 
   img {
-    height: 75%;
+    height: 60%;
     object-fit: cover;
-    transition: height 0.3s ease;
+    border-radius: 3px;
   }
 
   div {
-    padding: 1vw;
-    height: 25%;
-    transition: height 0.3s ease;
-
-    p {
-      display: none;
-    }
-  }
-
-  &:hover {
-    img {
-      height: 25%;
-    }
-
     h3 {
-      white-space: normal;
-      color: $red;
+      margin-bottom: 1vw;
     }
 
+    h5:nth-of-type(2) {
+      margin-bottom: 1vw;
+      font-weight: 100;
+    }
     div {
-      height: 75%;
-
-      p {
-        display: block;
-      }
-    }
-  }
-
-  @media screen and (max-width: 1300px) {
-    height: 40vh;
-
-    img {
-      height: 80%;
-    }
-
-    div {
-      padding: 1vw;
-      height: 20%;
-      transition: height 0.3s ease;
-
-      p {
-        display: none;
-      }
-    }
-
-    &:hover {
-      img {
-        height: 40%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        margin-bottom: 0;
       }
 
       div {
-        height: 60%;
+        display: flex;
+        align-items: center;
 
-        p {
-          display: block;
+        h3 {
+          font-weight: 100;
+        }
+
+        h2 {
+          color: $white;
+          padding: 0 0.5vw;
+          margin-right: 0.5vw;
         }
       }
     }
-  }
 
-  @media screen and (max-width: 1050px) {
-    height: 35vh;
-
-    img {
-      height: 80%;
-    }
-
-    div {
-      padding: 1vw;
-      height: 20%;
-
-      p {
-        display: none;
-      }
-    }
-
-    &:hover {
-      img {
-        height: 0%;
-      }
-
-      div {
-        height: 100%;
-
-        p {
-          display: block;
-        }
-      }
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    height: auto;
-
-    img {
-      height: auto;
-    }
-
-    h3 {
-      white-space: normal;
-      padding-bottom: 4vw;
-    }
-
-    div {
-      padding: 4vw;
-      height: auto;
-
-      p {
-        display: block;
-      }
-    }
-
-    &:hover {
-      img {
-        height: auto;
-      }
-
-      div {
-        height: auto;
-      }
-    }
-  }
-}
-
-.threeCards2 {
-  height: 55vh;
-
-  @media screen and (max-width: 1300px) {
-    height: 55vh;
-
-    &:hover {
-      img {
-        height: 30%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 1050px) {
-    height: 45vh;
-
-    &:hover {
-      img {
-        height: 0%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 750px) {
-    height: auto;
-
-    &:hover {
-      img {
-        height: auto;
-      }
-    }
-  }
-}
-
-.threeCards3 {
-  &:hover {
-    img {
-      height: 65%;
-    }
-
-    h3 {
-      white-space: normal;
-      color: $red;
-    }
-
-    div {
-      height: 35%;
-    }
-  }
-
-  @media screen and (max-width: 1300px) {
-    &:hover {
-      img {
-        height: 70%;
-      }
-
-      div {
-        height: 30%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 1050px) {
-    &:hover {
-      img {
-        height: 60%;
-      }
-
-      div {
-        height: 40%;
-      }
-    }
-  }
-
-  @media screen and (max-width: 1050px) {
-    &:hover {
-      img {
-        height: 0%;
-      }
-
-      div {
-        height: 100%;
-      }
-    }
+    /* Move the div to the bottom */
+    margin-top: auto; /* This will push the div to the bottom */
   }
 }
