@@ -1,0 +1,63 @@
+@use "../../styles/placeholders" as *;
+@use "../../styles/variables" as *;
+
+.headerStyling {
+  padding: 1vw 8vw;
+  display: flex;
+  justify-content: space-between;
+  background-color: $black;
+
+  div:nth-of-type(1) {
+    @extend %odibee;
+    background-color: $brown;
+    margin-bottom: -3vw;
+    padding: 0.5vw 1vw 0 1vw;
+    border: 2px solid black;
+
+    h1 {
+      color: $white;
+      font-weight: 400;
+    }
+  }
+
+  div:nth-of-type(2) {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: fit-content;
+      background-color: transparent;
+      margin-bottom: 0;
+      padding-left: 2vw;
+      input {
+        padding: 0.5vw;
+        font-size: 1vw;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border: 1px solid $grey;
+      }
+
+      ::placeholder {
+        font-size: 1vw;
+      }
+
+      span {
+        background-color: $brown;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 0.65vw;
+
+        svg {
+          color: $white;
+          font-size: 1vw;
+        }
+      }
+    }
+  }
+}

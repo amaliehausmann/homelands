@@ -1,0 +1,31 @@
+@use '../../styles/variables' as *;
+@use '../../styles/placeholders' as *;
+
+.navStyling{
+
+    ul{
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+
+        li{
+            list-style: none;
+            @extend %odibee;
+            font-size: 1.8vw;
+            padding: 0 1vw;
+
+            .activeNavlink{
+                color: $brown;
+                text-decoration: none;
+            }
+
+            .navLink{
+                text-decoration: none;
+            }
+            
+            a{
+                color: white;
+            }
+        }
+    }
+}
