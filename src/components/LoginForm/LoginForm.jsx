@@ -50,7 +50,7 @@ export const LoginForm = () => {
     
   return (
     <div>
-      <h3>Login</h3>
+      <h2>Login</h2>
       <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
       <Form formArray={loginForm} callback={logIn}>
         <button>Opret bruger</button>

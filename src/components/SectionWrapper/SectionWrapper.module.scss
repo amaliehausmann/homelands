@@ -1,6 +1,10 @@
 //Basestyling
 .sectionStyling{
     padding: 2vw 8vw;
+    min-height: 75vh;
 }
 
 //Custom Styling
+.height{
+    min-height: fit-content;
+}

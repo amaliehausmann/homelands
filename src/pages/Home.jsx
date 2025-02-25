@@ -32,7 +32,7 @@ export const Home = () => {
         <h2 style={{ textAlign: "center" }}> Det siger kunderne:</h2>
         <ReviewCard />
         <h2 style={{ textAlign: "center" }}>Mød vores ansatte</h2>
-        <SectionWrapper>
+        <SectionWrapper customStyling='height'>
           <GridContainer columns={4} gap={1}>
             {staffData?.items?.map((item) => (
               <Card

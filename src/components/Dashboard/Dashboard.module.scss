@@ -1,0 +1,32 @@
+.dashBoard {
+  margin-top: 3vw;
+  width: 75%;
+
+  h2,
+  p {
+    margin-bottom: 1vw;
+  }
+  span {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    padding: 0.5vw 0 0.5vw 0;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+
+  .actions {
+    padding-right: 4vw;
+    display: flex;
+    gap: 1vw;
+  }
+
+  span:nth-of-type(1) {
+    border-top: none;
+    h3 {
+      font-weight: 900;
+    }
+  }
+}

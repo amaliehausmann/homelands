@@ -40,5 +40,5 @@ export const useGet = (url, token) => {
 
     fetchData();
   }, [url, userToken]);
-  return { data, error, isLoading };
+  return { setData, data, error, isLoading };
 };
