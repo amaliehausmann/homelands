@@ -5,7 +5,7 @@ export const useGet = (url, token) => {
   const [data, setData] = useState();
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState();
-  // const { setUserToken, userToken } = useContext(UserContext);
+  const { setUserToken, userToken } = useContext(UserContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -28,9 +28,9 @@ export const useGet = (url, token) => {
         const res = await data.json();
         setData(res);
 
-        // if (res.access_token) {
-        //   setUserToken(res);
-        // }
+        if (res.access_token) {
+          setUserToken(res);
+        }
       } catch (err) {
         setError(err);
       } finally {
@@ -39,6 +39,6 @@ export const useGet = (url, token) => {
     }
 
     fetchData();
-  }, [url]);
+  }, [url, userToken]);
   return { data, error, isLoading };
 };

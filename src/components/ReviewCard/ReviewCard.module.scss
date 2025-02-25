@@ -1,0 +1,37 @@
+@use '../../styles/variables' as *;
+.reviewCard{
+    background-color: #484870;
+    margin: 1vw -8vw;
+    text-align: center;
+    padding: 2vw 8vw;
+    color: white;
+
+    h2{
+        margin-bottom: 1vw;
+    }
+
+    p{
+        margin-top: 2vw;
+    }
+
+    textarea{
+        border: none;
+        outline: none;
+    }
+}
+
+.review{
+    display: flex;
+    justify-content: center;
+    padding: 2vw 8vw;
+    margin: 1vw -8vw;
+    background-color: $darkgrey;
+}
+
+.writeReview{
+    margin-bottom: 3vw;
+    color: $blue;
+    &:hover{
+        color: $brown;
+    }
+}

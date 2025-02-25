@@ -21,7 +21,7 @@
   flex-direction: column;
   height: 70%;
 
-  &:hover{
+  &:hover {
     background-color: rgba(121, 89, 136, 0.361);
     transition: all 0.5s ease;
     margin: -0.5vw;
@@ -65,8 +65,67 @@
         }
       }
     }
+    margin-top: auto;
+  }
+}
 
-    /* Move the div to the bottom */
-    margin-top: auto; /* This will push the div to the bottom */
+.staff {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid grey;
+  margin-top: 1vw;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  div {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.874);
+    transition: transform 0.3s ease-in-out;
+    height: fit-content;
+    padding: 1vw;
+    box-sizing: border-box;
+
+    h3 {
+      margin-bottom: 0.5vw;
+    }
+
+    p {
+      z-index: 99;
+      position: relative;
+      margin-bottom: 0.5vw;
+    }
+
+    div {
+      padding: 1vw;
+      h3,
+      p {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    div {
+      h3,
+      p {
+        display: none;
+      }
+
+      div {
+        background-color: rgba(38, 35, 35, 0.879);
+        width: 100%;
+        right: 0;
+        h3,
+        p {
+          display: block;
+          color: white;
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,60 @@
+@use "../../styles/variables" as *;
+.formStyling {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+}
+
+.reviewForm {
+  position: relative;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+
+  span{
+    padding-right: 0;
+    margin-left: 3vw;
+  }
+
+  span:nth-child(2){
+    padding-right: 0;
+    margin-left: 0vw;
+  }
+
+  label {
+    margin-right: 0.5vw;
+    color: white;
+  }
+
+  input:nth-of-type(1) {
+    margin-left: 0vw;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+  }
+
+  textarea {
+    width: 20vw;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    padding: 0.5vw;
+  }
+
+  h6 {
+    position: absolute;
+    right: 0%;
+    text-align: right;
+  }
+}
+
+
+.reviewButton {
+  position: absolute;
+  right: -20%;
+  bottom: 1vw;
+  padding: 0.5vw 1vw;
+  border: none;
+  border-radius: 5px;
+  background-color: lightgray;
+}
