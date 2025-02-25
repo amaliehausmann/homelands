@@ -5,31 +5,85 @@ import { Form } from "../Form/Form";
 import { reviewForm } from "../../utils/reviewForm";
 import { useContext, useState } from "react";
 import { UserContext } from "../../context/userContext";
+import { toast } from "react-toastify";
 
 export const ReviewCard = () => {
-  const { userToken } = useContext(UserContext);
+  // Henter brugerens token og data fra context
+  const { userToken, userData } = useContext(UserContext);
 
-  const { data } = useGet("https://api.mediehuset.net/homelands/reviews");
+  // Henter anmeldelserne
+  const { data: reviewData } = useGet(
+    "https://api.mediehuset.net/homelands/reviews"
+  );
 
+  // States til at håndtere review-card visning
   const [openReview, setOpenReview] = useState(false);
   const [closeReview, setCloseReview] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const randomReview = data?.items?.sort(() => Math.random() - 0.5).slice(0, 1);
+  // Vælger en tilfældig anmeldelse fra listen
+  const randomReview = reviewData?.items
+    ?.sort(() => Math.random() - 0.5)
+    .slice(0, 1);
 
-  //Toggler viewet af reviewCarded baseret på om man har trykket på carded
+  // Toggler visning af anmeldelsekort
   function toggleReviewCard() {
     if (userToken) {
       setCloseReview((prevState) => !prevState);
       setOpenReview((prevState) => !prevState);
-    } else {
     }
   }
 
-  
+  // Funktion til at sende anmeldelsen
+  const submitReview = (data, token) => {
+    const body = new URLSearchParams();
+    body.append("title", data.title);
+    body.append("content", data.review);
+    body.append("user_id", userData.id);
+    body.append("active", true);
+    body.append("num_stars", 5);
+
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      const options = {
+        method: "POST",
+        body: body,
+        headers: { Authorization: `Bearer ${token}` },
+      };
+
+      try {
+        const response = await fetch(
+          "https://api.mediehuset.net/homelands/reviews",
+          options
+        );
+
+        if (!response.ok) {
+          throw new Error("Der opstod en fejl");
+        }
+
+        const res = await response.json();
+
+        if (res.status === "Ok") {
+          toast.success("Tak for din anmeldelse!");
+          setOpenReview(false);
+          setCloseReview(false);
+        } else {
+          throw new Error("Der opstod en fejl");
+        }
+      } catch (err) {
+        toast.error(err.message || "Der skete en fejl, prøv igen senere");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  };
 
   return (
     <>
-      {/* Viser en anmeldelse hvis randomReview er tilstede og closeReview er false */}
+      {/* Viser en tilfældig anmeldelse hvis den findes og closeReview er false */}
       {randomReview && closeReview === false && (
         <>
           <div
@@ -46,7 +100,7 @@ export const ReviewCard = () => {
               {formatMonth(randomReview[0].created_friendly)}
             </p>
           </div>
-          {/* Vis kun p-tag hvis brugeren er logget ind */}
+          {/* Viser kun "Skriv en anmeldelse", hvis brugeren er logget ind */}
           {userToken ? (
             <p
               onClick={toggleReviewCard}
@@ -58,11 +112,13 @@ export const ReviewCard = () => {
           ) : null}
         </>
       )}
-      {/* //Viser form til at skrive anmeldelse hvis openReview er true */}
+
+      {/* Viser formularen til at skrive en anmeldelse, hvis openReview er true og der er et userToken */}
       {openReview && userToken && (
         <div className={style.review}>
           <Form
             formArray={reviewForm}
+            callback={(data) => submitReview(data, userToken?.access_token)}
             custom="reviewForm"
             customButton="reviewButton"
           />
