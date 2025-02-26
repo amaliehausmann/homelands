@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { UserContext } from "../../context/userContext";
 import style from "./Dashboard.module.scss";
 
-
 export const Dashboard = () => {
   const { data: reviewData, setData: setReviewData } = useGet(
     "https://api.mediehuset.net/homelands/reviews"
@@ -53,7 +52,7 @@ export const Dashboard = () => {
     }
   };
 
-  function logOut(){
+  function logOut() {
     setUserData(null);
     setUserToken(null);
     toast.info("Du er nu logget ud");
@@ -78,13 +77,13 @@ export const Dashboard = () => {
             <h3>{item.title.substring(0, 10) + "..."}</h3>
             <h3>{formatDay(item.created_friendly)}</h3>
             <div className={style.actions}>
-              <h3 style={{ color: "red" }}>Slet</h3>
               <h3
-                style={{ color: "green" }}
+                style={{ color: "red", cursor: "pointer" }}
                 onClick={() => deleteReview(item.id, userToken.access_token)}
               >
-                Rediger
+                Slet
               </h3>
+              <h3 style={{ color: "green", cursor: "pointer" }}>Rediger</h3>
             </div>
           </span>
         ))}

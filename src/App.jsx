@@ -4,6 +4,7 @@ import { MainLayout } from "./layouts/MainLayout";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { UserContextProvider } from "./context/userContext";
+import { Listings } from "./pages/Listings";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<MainLayout />}>
               <Route index element={<Home />}></Route>
               <Route path="/login" element={<Login />}></Route>
+              <Route path="/boliger" element={<Listings />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

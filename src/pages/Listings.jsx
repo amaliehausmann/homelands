@@ -1,0 +1,72 @@
+import { useContext, useState } from "react";
+import { GridContainer } from "../components/GridContainer/GridContainer";
+import { ListingCard } from "../components/ListingCard/ListingCard";
+import { SectionWrapper } from "../components/SectionWrapper/SectionWrapper";
+import { useGet } from "../hooks/useGet";
+import { UserContext } from "../context/userContext";
+
+export const Listings = () => {
+  const { userToken } = useContext(UserContext);
+
+  //Data fetches
+  const { data: listingData } = useGet(
+    "https://api.mediehuset.net/homelands/homes"
+  );
+
+  const { data: favoriteData } = useGet(
+    "https://api.mediehuset.net/homelands/favorites",
+    userToken?.access_token
+  );
+
+  //UseState til at holde styr på den valgte sortering
+  const [sortOption, setSortOption] = useState("");
+
+  //Laver en kopi af listingData.items arrayet
+  let sortedListings = listingData?.items ? [...listingData.items] : [];
+
+  //Sorterer alfabetisk efter type hvis denne option er valgt
+  if (sortOption === "type") {
+    sortedListings.sort((a, b) => a.type.localeCompare(b.type));
+  }
+
+  // Sorterer efter pris (laveste til højeste)
+  if (sortOption === "priceLowToHigh") {
+    sortedListings.sort((a, b) => a.cost - b.cost);
+  }
+
+  // Sorterer efter pris (højeste til laveste)
+  if (sortOption === "priceHighToLow") {
+    sortedListings.sort((a, b) => b.cost - a.cost);
+  }
+
+  // Filtrerer favoritter, så kunne disse vises hvis denne option er valgt
+  if (sortOption === "favorite" && favoriteData?.items) {
+    sortedListings = sortedListings.filter((listing) =>
+      favoriteData.items.find((item) => item.home_id === listing.id)
+    );
+  }
+
+  return (
+    <SectionWrapper>
+      <h2>Boliger til salg</h2>
+
+      {/* sortering options */}
+      <select onChange={(e) => setSortOption(e.target.value)}>
+        <option value="">Standard sortering</option>
+        <option value="type">Sorter efter type</option>
+        <option value="priceLowToHigh">Sorter efter pris (laveste til højeste)</option>
+        <option value="priceHighToLow">Sorter efter pris (højeste til laveste)</option>
+        {userToken && <option value="favorite">Sorter efter favoritter</option>}
+      </select>
+
+      <GridContainer columns={3} gap={2}>
+        {/* Viser en besked, hvis der ikke er nogen boliger der matcher sorteringen */}
+        {sortedListings.length > 0 ? (
+          <ListingCard array={sortedListings} />
+        ) : (
+          <p>Ingen boliger fundet.</p>
+        )}
+      </GridContainer>
+    </SectionWrapper>
+  );
+};
