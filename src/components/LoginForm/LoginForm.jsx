@@ -52,9 +52,7 @@ export const LoginForm = () => {
     <div>
       <h2>Login</h2>
       <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
-      <Form formArray={loginForm} callback={logIn}>
-        <button>Opret bruger</button>
-      </Form>
+      <Form formArray={loginForm} callback={logIn}></Form>
     </div>
   );
 };

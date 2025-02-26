@@ -12,7 +12,7 @@ export const Dashboard = () => {
   );
 
   const [isLoading, setIsLoading] = useState();
-  const { userToken } = useContext(UserContext);
+  const { userToken, setUserData, setUserToken } = useContext(UserContext);
 
   // Funktion til at slette anmeldelse
   const deleteReview = async (id, token) => {
@@ -53,11 +53,20 @@ export const Dashboard = () => {
     }
   };
 
+  function logOut(){
+    setUserData(null);
+    setUserToken(null);
+    toast.info("Du er nu logget ud");
+    sessionStorage.removeItem("userData");
+    sessionStorage.removeItem("userToken");
+  }
+
   return (
     <>
       <div className={style.dashBoard}>
         <h2>Administration</h2>
         <p>Du er logget ind som admin</p>
+        <button onClick={logOut}>Log ud</button>
         <span>
           <h3>Dine anmeldelser</h3>
           <h3>Dato</h3>
