@@ -1,5 +1,5 @@
-import { useGet } from "../../hooks/useGet";
 import { Card } from "../Card/Card";
+import { Favorite } from "../Favorite/Favorite";
 
 export const ListingCard = ({ array }) => {
 
@@ -27,7 +27,7 @@ export const ListingCard = ({ array }) => {
 
   return (
     <>
-    {/* Mapper arrayet ud */}
+      {/* Mapper arrayet ud */}
       {array?.map((item) => (
         <Card
           key={item.id}
@@ -35,6 +35,7 @@ export const ListingCard = ({ array }) => {
           title={item.address}
           custom="listings"
         >
+          <Favorite listing_id={item.id}/>
           <h5>
             <b>
               {item.zipcode} {item.city}
