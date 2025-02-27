@@ -3,6 +3,7 @@ import { loginForm } from "../../utils/Login";
 import { Form } from "../Form/Form";
 import { UserContext } from "../../context/userContext";
 import { toast } from "react-toastify";
+import style from './LoginForm.module.scss'
 
 export const LoginForm = () => {
 
@@ -49,10 +50,10 @@ export const LoginForm = () => {
     }
     
   return (
-    <div>
+    <div className={style.login}>
       <h2>Login</h2>
       <p>Indtast dit brugernavn og adgangskode for at logge ind</p>
-      <Form formArray={loginForm} callback={logIn}></Form>
+      <Form formArray={loginForm} callback={logIn} customButton='loginButton' buttonText='Log ind'></Form>
     </div>
   );
 };

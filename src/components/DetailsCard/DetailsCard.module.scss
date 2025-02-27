@@ -1,0 +1,111 @@
+.details {
+  background-color: rgba(255, 255, 255, 0.858);
+  padding: 2vw;
+  margin-top: -14vw;
+  position: relative;
+
+  .firstRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 3vw;
+    }
+
+    div:nth-of-type(2) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1vw;
+
+      span {
+        background-color: white;
+        padding: 1vw;
+        border-radius: 50%;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        svg {
+          font-size: 2.5vw;
+          color: rgb(68, 67, 67);
+          &:hover {
+            color: black;
+          }
+        }
+
+        img {
+          height: 2.5vw;
+          filter: brightness(0) saturate(100%) invert(21%) sepia(0%)
+            saturate(90%) hue-rotate(168deg) brightness(101%) contrast(82%);
+
+          &:hover {
+            filter: none;
+          }
+        }
+      }
+      div {
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    div:nth-of-type(3) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      h3 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .secondRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 4vw;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      span {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.5vw 0;
+      }
+    }
+  }
+
+  .lastRow {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 10vw;
+    padding-top: 4vw;
+
+    img {
+      width: 100%;
+    }
+
+    h3{
+      font-weight: 400;
+    }
+
+    article:nth-of-type(2){
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

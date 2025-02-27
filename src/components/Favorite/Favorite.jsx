@@ -2,11 +2,10 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
 import { UserContext } from "../../context/userContext";
 import { useContext, useEffect, useState } from "react";
-import { useGet } from "../../hooks/useGet";
 import { toast } from "react-toastify";
 import style from './Favorite.module.scss'
 
-export const Favorite = ({ listing_id, favoriteArray }) => {
+export const Favorite = ({ listing_id, favoriteArray, custom }) => {
 
   const { userToken } = useContext(UserContext);
 
@@ -96,7 +95,7 @@ export const Favorite = ({ listing_id, favoriteArray }) => {
   return (
     <>
       {userToken && (
-        <div className={style.favoriteStyling}>
+        <div className={`${style.favoriteStyling} ${style[custom]}`}>
           {locallyLiked ? (
             <span
               onClick={() => unlikeListing(listing_id, userToken.access_token)}

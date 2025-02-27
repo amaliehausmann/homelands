@@ -63,9 +63,14 @@ export const Dashboard = () => {
   return (
     <>
       <div className={style.dashBoard}>
+        <article>
+        <article>
         <h2>Administration</h2>
         <p>Du er logget ind som admin</p>
+        </article>
         <button onClick={logOut}>Log ud</button>
+        </article>
+
         <span>
           <h3>Dine anmeldelser</h3>
           <h3>Dato</h3>
@@ -74,7 +79,7 @@ export const Dashboard = () => {
 
         {reviewData?.items?.map((item) => (
           <span key={item.id}>
-            <h3>{item.title.substring(0, 10) + "..."}</h3>
+            <h3 style={{minWidth: '11vw'}}>{item.title.substring(0, 10) + "..."}</h3>
             <h3>{formatDay(item.created_friendly)}</h3>
             <div className={style.actions}>
               <h3

@@ -8,3 +8,17 @@
 .height{
     min-height: fit-content;
 }
+
+.listings{
+    span{
+        display: flex;
+        justify-content: space-between;
+        padding: 2vw 0;
+
+        select{
+            border-radius: 5px;
+            padding: 0.5vw 1vw;
+        }
+    }
+
+}
