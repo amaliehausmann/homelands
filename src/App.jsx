@@ -16,6 +16,7 @@ function App() {
               <Route index element={<Home />}></Route>
               <Route path="/login" element={<Login />}></Route>
               <Route path="/boliger" element={<Listings />}></Route>
+              <Route path="/boliger/search/:keyword" element={<Listings />}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

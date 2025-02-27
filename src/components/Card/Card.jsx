@@ -16,6 +16,7 @@ export const Card = ({
     >
       <img src={`${image}`} alt={alttext} />
       <div>
+        <h3 className={style.title}>{title}</h3>
         {children}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { Card } from "../Card/Card";
 import { Favorite } from "../Favorite/Favorite";
 
-export const ListingCard = ({ array }) => {
+export const ListingCard = ({ array, customStyle, favoriteArray }) => {
 
   //Function der returnerer en hexkode udfra hvad energylabel er
   function getBackgroundColor(energyLabel) {
@@ -34,8 +34,9 @@ export const ListingCard = ({ array }) => {
           image={item.images[0].filename.large}
           title={item.address}
           custom="listings"
+          custom2={customStyle}
         >
-          <Favorite listing_id={item.id}/>
+          <Favorite favoriteArray={favoriteArray} listing_id={item.id}/>
           <h5>
             <b>
               {item.zipcode} {item.city}

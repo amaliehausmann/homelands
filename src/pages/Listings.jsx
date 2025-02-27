@@ -4,19 +4,23 @@ import { ListingCard } from "../components/ListingCard/ListingCard";
 import { SectionWrapper } from "../components/SectionWrapper/SectionWrapper";
 import { useGet } from "../hooks/useGet";
 import { UserContext } from "../context/userContext";
+import { useParams } from "react-router-dom";
 
 export const Listings = () => {
   const { userToken } = useContext(UserContext);
 
-  //Data fetches
-  const { data: listingData } = useGet(
-    "https://api.mediehuset.net/homelands/homes"
-  );
+  const {keyword} = useParams();
 
+  //Henter data for boliger
+  const { data: listingData } = useGet(
+    keyword ? `https://api.mediehuset.net/homelands/search/${keyword}`: "https://api.mediehuset.net/homelands/homes"
+  );
   const { data: favoriteData } = useGet(
-    "https://api.mediehuset.net/homelands/favorites",
+    userToken ? "https://api.mediehuset.net/homelands/favorites" : '',
     userToken?.access_token
   );
+
+
 
   //UseState til at holde styr på den valgte sortering
   const [sortOption, setSortOption] = useState("");
@@ -24,6 +28,9 @@ export const Listings = () => {
   //Laver en kopi af listingData.items arrayet
   let sortedListings = listingData?.items ? [...listingData.items] : [];
 
+
+
+  //   SORTERINGER
   //Sorterer alfabetisk efter type hvis denne option er valgt
   if (sortOption === "type") {
     sortedListings.sort((a, b) => a.type.localeCompare(b.type));
@@ -54,15 +61,19 @@ export const Listings = () => {
       <select onChange={(e) => setSortOption(e.target.value)}>
         <option value="">Standard sortering</option>
         <option value="type">Sorter efter type</option>
-        <option value="priceLowToHigh">Sorter efter pris (laveste til højeste)</option>
-        <option value="priceHighToLow">Sorter efter pris (højeste til laveste)</option>
+        <option value="priceLowToHigh">
+          Sorter efter pris (laveste til højeste)
+        </option>
+        <option value="priceHighToLow">
+          Sorter efter pris (højeste til laveste)
+        </option>
         {userToken && <option value="favorite">Sorter efter favoritter</option>}
       </select>
 
-      <GridContainer columns={3} gap={2}>
+      <GridContainer columns={3} gap='custom'>
         {/* Viser en besked, hvis der ikke er nogen boliger der matcher sorteringen */}
         {sortedListings.length > 0 ? (
-          <ListingCard array={sortedListings} />
+          <ListingCard favoriteArray={favoriteData} array={sortedListings} customStyle='listingSite' />
         ) : (
           <p>Ingen boliger fundet.</p>
         )}

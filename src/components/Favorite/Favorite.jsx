@@ -4,18 +4,19 @@ import { UserContext } from "../../context/userContext";
 import { useContext, useEffect, useState } from "react";
 import { useGet } from "../../hooks/useGet";
 import { toast } from "react-toastify";
+import style from './Favorite.module.scss'
 
-export const Favorite = ({ listing_id }) => {
+export const Favorite = ({ listing_id, favoriteArray }) => {
 
   const { userToken } = useContext(UserContext);
 
-  const { data } = useGet(
-    "https://api.mediehuset.net/homelands/favorites",
-    userToken?.access_token
-  );
+  // const { data } = useGet(
+  //   "https://api.mediehuset.net/homelands/favorites",
+  //   userToken?.access_token
+  // );
 
   //Tjekker om listing allerede er liket, some() returnerer true hvis der er et favorite med home_id der matcher listing id
-  const isInitiallyLiked = data?.items?.some((item) => item.home_id === listing_id);
+  const isInitiallyLiked = favoriteArray?.items?.some((item) => item.home_id === listing_id);
 
   const [isLoading, setIsLoading] = useState();
   const [locallyLiked, setLocallyLiked] = useState(isInitiallyLiked);
@@ -100,7 +101,7 @@ export const Favorite = ({ listing_id }) => {
   return (
     <>
       {userToken && (
-        <div>
+        <div className={style.favoriteStyling}>
           {locallyLiked ? (
             <span
               onClick={() => unlikeListing(listing_id, userToken.access_token)}
