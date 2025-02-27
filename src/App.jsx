@@ -5,6 +5,7 @@ import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { UserContextProvider } from "./context/userContext";
 import { Listings } from "./pages/Listings";
+import { ListingDetails } from "./pages/ListingDetails";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path="/login" element={<Login />}></Route>
               <Route path="/boliger" element={<Listings />}></Route>
               <Route path="/boliger/search/:keyword" element={<Listings />}></Route>
+              <Route path="/boliger/:id" element={<ListingDetails/>}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

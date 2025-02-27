@@ -8,15 +8,16 @@ export const Card = ({
   custom2,
   action,
   alttext,
+  navigate
 }) => {
   return (
     <div
       onClick={action}
       className={`${style.cardStyling} ${style[custom]} ${style[custom2]}`}
     >
-      <img src={`${image}`} alt={alttext} />
+      <img onClick={navigate} src={`${image}`} alt={alttext} />
       <div>
-        <h3 className={style.title}>{title}</h3>
+        <h3 onClick={navigate} className={style.title}>{title}</h3>
         {children}
       </div>
     </div>

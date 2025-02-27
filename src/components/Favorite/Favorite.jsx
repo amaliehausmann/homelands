@@ -10,11 +10,6 @@ export const Favorite = ({ listing_id, favoriteArray }) => {
 
   const { userToken } = useContext(UserContext);
 
-  // const { data } = useGet(
-  //   "https://api.mediehuset.net/homelands/favorites",
-  //   userToken?.access_token
-  // );
-
   //Tjekker om listing allerede er liket, some() returnerer true hvis der er et favorite med home_id der matcher listing id
   const isInitiallyLiked = favoriteArray?.items?.some((item) => item.home_id === listing_id);
 

@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { Card } from "../Card/Card";
 import { Favorite } from "../Favorite/Favorite";
+import { toast } from "react-toastify";
 
 export const ListingCard = ({ array, customStyle, favoriteArray }) => {
 
@@ -25,6 +27,34 @@ export const ListingCard = ({ array, customStyle, favoriteArray }) => {
     }
   }
 
+  const navigate = useNavigate();
+
+  function navigateDetails(id){
+    navigate(`/boliger/${id}`)
+    updateClickCount(id)
+  }
+
+  //PATCH
+
+  const updateClickCount = async (id) =>{
+    const options = {
+      method: 'PATCH',
+    };
+    
+    try {
+      const response = await fetch(`https://api.mediehuset.net/homelands/homes/${id}`, options);
+      if (!response.ok){
+        throw new Error('Der opstod en fejl')
+      }
+
+      const res = await response.json();
+
+    } catch (error) {
+      console.error(error.message || 'Der opstod en fejl, prøv igen senere')
+    }
+
+  }
+
   return (
     <>
       {/* Mapper arrayet ud */}
@@ -35,6 +65,7 @@ export const ListingCard = ({ array, customStyle, favoriteArray }) => {
           title={item.address}
           custom="listings"
           custom2={customStyle}
+          navigate={()=>navigateDetails(item.id)}
         >
           <Favorite favoriteArray={favoriteArray} listing_id={item.id}/>
           <h5>
