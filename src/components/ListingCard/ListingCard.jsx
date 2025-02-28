@@ -27,6 +27,7 @@ export const ListingCard = ({ array, customStyle, favoriteArray }) => {
 
   const navigate = useNavigate();
 
+  //Navigerer til details siden med id som param
   function navigateDetails(id) {
     navigate(`/boliger/${id}`);
     updateClickCount(id);
@@ -88,7 +89,7 @@ export const ListingCard = ({ array, customStyle, favoriteArray }) => {
             </div>
             <h3>
               {/* Ganger tallet med 1000 og returnerer tallet som et dansk tal */}
-              {(Number(item.price)).toLocaleString("da-DK")},00 DKK
+              {Number(item.price).toLocaleString("da-DK")},00 DKK
             </h3>
           </div>
         </Card>

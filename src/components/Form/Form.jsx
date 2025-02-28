@@ -2,11 +2,18 @@ import { useForm } from "react-hook-form";
 import { InputField } from "../InputField/InputField";
 import style from "./Form.module.scss";
 
-export const Form = ({ formArray, callback, buttonText, children, custom, customButton }) => {
+export const Form = ({
+  formArray,
+  callback,
+  buttonText,
+  children,
+  custom,
+  customButton,
+}) => {
   // useForm hook til at validere formen
   const {
     register,
-    handleSubmit, 
+    handleSubmit,
     formState: { errors },
   } = useForm({
     mode: "onChange",
@@ -14,11 +21,14 @@ export const Form = ({ formArray, callback, buttonText, children, custom, custom
 
   // Funktion som håndterer submit af formen og medsender data i en callback
   function submit(data) {
-    callback(data); 
+    callback(data);
   }
 
   return (
-    <form className={`${style.formStyling} ${style[custom]}`}  onSubmit={handleSubmit(submit)}>
+    <form
+      className={`${style.formStyling} ${style[custom]}`}
+      onSubmit={handleSubmit(submit)}
+    >
       {/* Mapper formArray */}
       {formArray.map((item) => (
         <InputField
@@ -26,7 +36,7 @@ export const Form = ({ formArray, callback, buttonText, children, custom, custom
           name={item.name}
           label={item.label}
           type={item.type}
-          placeholder={item.placeholder} 
+          placeholder={item.placeholder}
           register={register}
           validation={item.validation}
           error={errors[item.name]}
@@ -34,7 +44,11 @@ export const Form = ({ formArray, callback, buttonText, children, custom, custom
         />
       ))}
       <div>
-        <input type="submit" className={`${style.submitButton} ${style[customButton]}`} value={buttonText} />
+        <input
+          type="submit"
+          className={`${style.submitButton} ${style[customButton]}`}
+          value={buttonText}
+        />
         {children}
       </div>
     </form>

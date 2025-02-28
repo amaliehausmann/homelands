@@ -11,21 +11,21 @@ export const ListingDetails = () => {
   const { id } = useParams();
   const { userToken } = useContext(UserContext);
 
-  // Fetching listing data
+  // Fetcher listingData
   const { data: listingData } = useGet(
     `https://api.mediehuset.net/homelands/homes/${id}`
   );
 
-  // Fetching favorite data if the user is authenticated
+  // Fetcher favorite data hvis brugeren er logget ind
   const { data: favoriteData } = useGet(
     userToken ? "https://api.mediehuset.net/homelands/favorites" : "",
     userToken?.access_token
   );
 
-  // Destructuring item from listingData
+  // Destructure item 
   const item = listingData?.item;
 
-  // Fixer url for floorplan
+  // Fixer url til floorplan
   const fixedUrl = item?.floorplan
     ? item.floorplan.replace(
         "https://api.mediehuset.net/images/homelands//plans/https://api.mediehuset.net/images/homelands/plans/",
@@ -35,7 +35,7 @@ export const ListingDetails = () => {
 
   return (
     <>
-        <PageTitle pageTitle='HomeLands: Detaljer'/>
+      <PageTitle pageTitle="HomeLands: Detaljer" />
       {item && (
         <>
           <Hero imgsrc={item.images[0]?.filename?.large || ""} />

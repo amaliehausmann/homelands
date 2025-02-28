@@ -9,8 +9,10 @@ export const Header = () => {
 
   const navigate = useNavigate();
 
-  const default_value = 'a';
+  //Sætter default value til at være 'a' hvis der bliver søgt med et tomt søgefelt
+  const default_value = "a";
 
+  //Function der navigerer til boligsiden med det søgte ord som param
   function search(searchedWord) {
     navigate(`/boliger/search/${searchedWord}`);
   }

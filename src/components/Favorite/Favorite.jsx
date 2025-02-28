@@ -3,14 +3,15 @@ import { IoMdHeart } from "react-icons/io";
 import { UserContext } from "../../context/userContext";
 import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import style from './Favorite.module.scss'
+import style from "./Favorite.module.scss";
 
 export const Favorite = ({ listing_id, favoriteArray, custom }) => {
-
   const { userToken } = useContext(UserContext);
 
   //Tjekker om listing allerede er liket, some() returnerer true hvis der er et favorite med home_id der matcher listing id
-  const isInitiallyLiked = favoriteArray?.items?.some((item) => item.home_id === listing_id);
+  const isInitiallyLiked = favoriteArray?.items?.some(
+    (item) => item.home_id === listing_id
+  );
 
   const [isLoading, setIsLoading] = useState();
   const [locallyLiked, setLocallyLiked] = useState(isInitiallyLiked);

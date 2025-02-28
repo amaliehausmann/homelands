@@ -7,14 +7,13 @@ import { UserContext } from "../../context/userContext";
 export const NavBar = () => {
   const { userToken } = useContext(UserContext);
 
-// Mapper over navLinks arrayet og opretter et nyt array (linkArray)  
-const linkArray = navLinks.map((item) =>
-  // Hvis linket er til "/login" ændres titlen hvis der er en userToken
-  item.link === "/login"
-    ? { ...item, title: userToken ? "Min profil" : "Login" } // Hvis userToken eksisterer = "Min profil", ellers "Login"
-    : item
-);
-
+  // Mapper over navLinks arrayet og opretter et nyt array (linkArray)
+  const linkArray = navLinks.map((item) =>
+    // Hvis linket er til "/login" ændres titlen hvis der er en userToken
+    item.link === "/login"
+      ? { ...item, title: userToken ? "Min profil" : "Login" } // Hvis userToken eksisterer = "Min profil", ellers "Login"
+      : item
+  );
 
   return (
     <nav className={style.navStyling}>

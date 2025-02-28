@@ -43,10 +43,12 @@ export const DetailsCard = ({
   const [openFloorPlan, setOpenFloorPlan] = useState(false);
   const [openGallery, setOpenGallery] = useState(false);
 
+  //Toggler visning af floorplan
   function toggleFloorPlan() {
     setOpenFloorPlan((prevState) => !prevState);
   }
 
+  //Togller visning af galleriet
   function toggleGallery() {
     setOpenGallery((prevState) => !prevState);
   }
@@ -215,7 +217,11 @@ export const DetailsCard = ({
       </section>
       {openFloorPlan && (
         <Modal action={toggleFloorPlan}>
-          <img style={{ width: "100%", height: '100%', objectFit: 'contain' }} src={floorplan} alt="" />
+          <img
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            src={floorplan}
+            alt=""
+          />
         </Modal>
       )}
       {openGallery && (

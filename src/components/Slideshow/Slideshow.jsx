@@ -4,7 +4,9 @@ import { useGet } from "../../hooks/useGet";
 
 export const Slideshow = ({ custom }) => {
   // Henter slideshow-billeder fra API'et
-  const { data: slideshowImages } = useGet("https://api.mediehuset.net/homelands/images");
+  const { data: slideshowImages } = useGet(
+    "https://api.mediehuset.net/homelands/images"
+  );
 
   // Tager de sidste 3 billeder fra arrayet
   const threeImages = slideshowImages?.items?.slice(-3) || [];

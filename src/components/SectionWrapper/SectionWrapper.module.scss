@@ -1,36 +1,35 @@
 //Basestyling
-.sectionStyling{
-    padding: 2vw 8vw;
-    min-height: 75vh;
+.sectionStyling {
+  padding: 2vw 8vw;
+  min-height: 75vh;
 
-    @media screen and (max-width: 1300px){
-        padding: 2vw 6vw;
-    }
+  @media screen and (max-width: 1300px) {
+    padding: 2vw 6vw;
+  }
 
-    @media screen and (max-width: 1050px){
-        padding: 2vw 4vw;
-    }
+  @media screen and (max-width: 1050px) {
+    padding: 2vw 4vw;
+  }
 
-    @media screen and (max-width: 768px){
-        padding: 2vw 2vw;
-    }
+  @media screen and (max-width: 768px) {
+    padding: 2vw 2vw;
+  }
 }
 
 //Custom Styling
-.height{
-    min-height: fit-content;
+.height {
+  min-height: fit-content;
 }
 
-.listings{
-    span{
-        display: flex;
-        justify-content: space-between;
-        padding: 2vw 0;
+.listings {
+  span {
+    display: flex;
+    justify-content: space-between;
+    padding: 2vw 0;
 
-        select{
-            border-radius: 5px;
-            padding: 0.5vw 1vw;
-        }
+    select {
+      border-radius: 5px;
+      padding: 0.5vw 1vw;
     }
-
+  }
 }

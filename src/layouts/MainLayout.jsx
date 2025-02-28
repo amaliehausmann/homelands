@@ -6,9 +6,9 @@ import { Footer } from "../components/Footer/Footer";
 export const MainLayout = () => {
   return (
     <main className={style.mainLayout}>
-      <Header/>
+      <Header />
       <Outlet />
-      <Footer/>
+      <Footer />
     </main>
   );
 };

@@ -10,24 +10,23 @@ import { UserContext } from "../context/userContext";
 import { PageTitle } from "../components/PageTitle/PageTitle";
 
 export const Home = () => {
+  const { userToken } = useContext(UserContext);
 
-  const {userToken} = useContext(UserContext);
-
-    //Henter data for homes
-    const { data: homeListings } = useGet(
-      "https://api.mediehuset.net/homelands/homes"
-    );
-
+  //Henter data for homes
+  const { data: homeListings } = useGet(
+    "https://api.mediehuset.net/homelands/homes"
+  );
 
   //Henter data for staff
   const { data: staffData } = useGet(
     "https://api.mediehuset.net/homelands/staff"
   );
 
-    //Henter data for favorites
-    const { data: favoriteData } = useGet(
-      userToken ? "https://api.mediehuset.net/homelands/favorites" : '', userToken?.access_token
-    );
+  //Henter data for favorites
+  const { data: favoriteData } = useGet(
+    userToken ? "https://api.mediehuset.net/homelands/favorites" : "",
+    userToken?.access_token
+  );
 
   //Finder 3 random boliger
   const randomThreeListings = homeListings?.items
@@ -36,16 +35,19 @@ export const Home = () => {
 
   return (
     <>
-    <PageTitle pageTitle='HomeLands: Forside'></PageTitle>
+      <PageTitle pageTitle="HomeLands: Forside"></PageTitle>
       <Slideshow custom="negativeMargin" />
       <SectionWrapper>
         <GridContainer columns={3} gap={2}>
-          <ListingCard favoriteArray={favoriteData} array={randomThreeListings} />
+          <ListingCard
+            favoriteArray={favoriteData}
+            array={randomThreeListings}
+          />
         </GridContainer>
         <h2 style={{ textAlign: "center" }}> Det siger kunderne:</h2>
         <ReviewCard />
         <h2 style={{ textAlign: "center" }}>Mød vores ansatte</h2>
-        <SectionWrapper customStyling='height'>
+        <SectionWrapper customStyling="height">
           <GridContainer columns={4} gap={1}>
             {staffData?.items?.map((item) => (
               <Card

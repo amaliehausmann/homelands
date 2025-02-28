@@ -38,7 +38,8 @@
 
         img {
           height: 2.5vw;
-          filter: brightness(0) saturate(100%) invert(21%) sepia(0%) saturate(90%) hue-rotate(168deg) brightness(101%) contrast(82%);
+          filter: brightness(0) saturate(100%) invert(21%) sepia(0%)
+            saturate(90%) hue-rotate(168deg) brightness(101%) contrast(82%);
 
           &:hover {
             filter: none;
@@ -107,7 +108,7 @@
       grid-template-columns: 1fr;
       gap: 4vw;
 
-      b{
+      b {
         margin-right: 2vw;
       }
 

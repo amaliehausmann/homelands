@@ -19,9 +19,9 @@ export const useGet = (url, token) => {
           : {},
       };
 
-      if(url.includes('undefined')){
+      if (url.includes("undefined")) {
         return;
-      };
+      }
 
       try {
         const data = await fetch(url, options);

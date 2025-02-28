@@ -13,8 +13,6 @@ export const UserContextProvider = ({ children }) => {
         setUserData(JSON.parse(sessionStorage.getItem("userData")));
         setUserToken(JSON.parse(sessionStorage.getItem("userData")));
       }
-
-
     }
 
     if (userData?.access_token) {
@@ -24,7 +22,9 @@ export const UserContextProvider = ({ children }) => {
   }, [userData]);
 
   return (
-    <UserContext.Provider value={{ userData, setUserData, setUserToken, userToken }}>
+    <UserContext.Provider
+      value={{ userData, setUserData, setUserToken, userToken }}
+    >
       {children}
     </UserContext.Provider>
   );
