@@ -5,6 +5,7 @@ import { useGet } from "../hooks/useGet";
 import { DetailsCard } from "../components/DetailsCard/DetailsCard";
 import { useContext } from "react";
 import { UserContext } from "../context/userContext";
+import { PageTitle } from "../components/PageTitle/PageTitle";
 
 export const ListingDetails = () => {
   const { id } = useParams();
@@ -34,6 +35,7 @@ export const ListingDetails = () => {
 
   return (
     <>
+        <PageTitle pageTitle='HomeLands: Detaljer'/>
       {item && (
         <>
           <Hero imgsrc={item.images[0]?.filename?.large || ""} />

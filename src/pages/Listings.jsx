@@ -5,6 +5,7 @@ import { SectionWrapper } from "../components/SectionWrapper/SectionWrapper";
 import { useGet } from "../hooks/useGet";
 import { UserContext } from "../context/userContext";
 import { useParams } from "react-router-dom";
+import { PageTitle } from "../components/PageTitle/PageTitle";
 
 export const Listings = () => {
   const { userToken } = useContext(UserContext);
@@ -53,6 +54,7 @@ export const Listings = () => {
 
   return (
     <SectionWrapper customStyling="listings">
+      <PageTitle pageTitle="HomeLands: Boliger" />
       <span>
         <h2>Boliger til salg</h2>
 

@@ -7,6 +7,7 @@ import { SectionWrapper } from "../components/SectionWrapper/SectionWrapper";
 import { Slideshow } from "../components/SlideShow/SlideShow";
 import { useGet } from "../hooks/useGet";
 import { UserContext } from "../context/userContext";
+import { PageTitle } from "../components/PageTitle/PageTitle";
 
 export const Home = () => {
 
@@ -35,6 +36,7 @@ export const Home = () => {
 
   return (
     <>
+    <PageTitle pageTitle='HomeLands: Forside'></PageTitle>
       <Slideshow custom="negativeMargin" />
       <SectionWrapper>
         <GridContainer columns={3} gap={2}>
