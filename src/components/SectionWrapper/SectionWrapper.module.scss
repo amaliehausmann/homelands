@@ -2,6 +2,18 @@
 .sectionStyling{
     padding: 2vw 8vw;
     min-height: 75vh;
+
+    @media screen and (max-width: 1300px){
+        padding: 2vw 6vw;
+    }
+
+    @media screen and (max-width: 1050px){
+        padding: 2vw 4vw;
+    }
+
+    @media screen and (max-width: 768px){
+        padding: 2vw 2vw;
+    }
 }
 
 //Custom Styling

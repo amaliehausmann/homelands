@@ -1,37 +1,88 @@
-@use '../../styles/variables' as *;
-.reviewCard{
-    background-color: #484870;
-    margin: 1vw -8vw;
-    text-align: center;
-    padding: 2vw 8vw;
-    color: white;
+@use "../../styles/variables" as *;
+.reviewCard {
+  background-color: #484870;
+  margin: 1vw -8vw;
+  text-align: center;
+  padding: 2vw 8vw;
+  color: white;
 
-    h2{
-        margin-bottom: 1vw;
+  h2 {
+    margin-bottom: 1vw;
+  }
+
+  p {
+    margin-top: 2vw;
+  }
+
+  textarea {
+    border: none;
+    outline: none;
+  }
+
+  @media screen and (max-width: 1300px) {
+    margin: 1vw -6vw;
+    padding: 2vw 6vw;
+    h2 {
+      margin-bottom: 2vw;
     }
 
-    p{
-        margin-top: 2vw;
+    p {
+      margin-top: 3vw;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    margin: 1vw -4vw;
+    padding: 2vw 4vw;
+    h2 {
+      margin-bottom: 3vw;
     }
 
-    textarea{
-        border: none;
-        outline: none;
+    p {
+      margin-top: 3vw;
     }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 1vw -2vw;
+    padding: 4vw 2vw;
+    h2 {
+      margin-bottom: 3vw;
+    }
+
+    p {
+      margin-top: 3vw;
+    }
+  }
 }
 
-.review{
-    display: flex;
-    justify-content: center;
-    padding: 2vw 8vw;
-    margin: 1vw -8vw;
-    background-color: $darkgrey;
+.review {
+  display: flex;
+  justify-content: center;
+  padding: 2vw 8vw;
+  margin: 1vw -8vw;
+  background-color: $darkgrey;
+
+  @media screen and (max-width: 1300px) {
+    padding: 2vw 6vw;
+    margin: 1vw -6vw;
+  }
+
+  @media screen and (max-width: 1050px) {
+    padding: 2vw 4vw;
+    margin: 1vw -4vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 4vw 2vw 8vw 2vw;
+    margin: 5vw -2vw;
+  }
 }
 
-.writeReview{
-    margin-bottom: 3vw;
-    color: $blue;
-    &:hover{
-        color: $brown;
-    }
+.writeReview {
+  margin-bottom: 3vw;
+  color: $blue;
+  &:hover {
+    color: $brown;
+  }
 }

@@ -40,6 +40,10 @@
 
 .gap-2{
   gap: 2vw;
+
+  @media screen and (max-width: 1050px) {
+    gap: 1vw;
+  }
 }
 
 .gap-custom{
@@ -50,7 +54,7 @@
   display: grid;
 
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 }

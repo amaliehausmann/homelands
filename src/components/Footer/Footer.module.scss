@@ -1,34 +1,99 @@
-@use '../../styles/placeholders' as *;
-@use '../../styles/variables' as *;
+@use "../../styles/placeholders" as *;
+@use "../../styles/variables" as *;
 .footerStyling {
-    padding: 2vw 8vw;
-    background-color: $black;
-    color: white;
-    margin-top: 1vw;
+  padding: 2vw 8vw;
+  background-color: $black;
+  color: white;
+  margin-top: 1vw;
 
-    h2{
-        @extend %odibee;
-        font-size: 3vw;
-        font-weight: 400;
-    }
+  h2 {
+    @extend %odibee;
+    font-size: 3vw;
+    font-weight: 400;
+  }
 
-    ul{
-        margin-top: 0.5vw;
+  ul {
+    margin-top: 0.5vw;
 
-        li{
-            list-style: none;
-        }
-    }
-  
-    div {
-      display: flex;
-      justify-content: flex-end;
-      gap: 1vw;
-      margin-top: 0.5vw;
-    }
-  
-    svg {
-      font-size: 2vw; 
+    li {
+      list-style: none;
     }
   }
-  
+
+  div {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1vw;
+    margin-top: 0.5vw;
+  }
+
+  svg {
+    font-size: 2vw;
+  }
+
+  @media screen and (max-width: 1300px) {
+    padding: 2vw 6vw;
+    margin-top: 2vw;
+
+    h2 {
+      font-size: 3.5vw;
+    }
+
+    ul {
+      margin-top: 0.5vw;
+    }
+
+    div {
+      gap: 2vw;
+      margin-top: 1vw;
+    }
+
+    svg {
+      font-size: 3vw;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    padding: 2vw 4vw;
+    margin-top: 2vw;
+
+    h2 {
+      font-size: 3.5vw;
+    }
+
+    ul {
+      margin-top: 0.5vw;
+    }
+
+    div {
+      gap: 2vw;
+      margin-top: 1vw;
+    }
+
+    svg {
+      font-size: 5vw;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 2vw 2vw;
+    margin-top: 4vw;
+
+    h2 {
+      font-size: 5cqb;
+    }
+
+    ul {
+      margin-top: 0.5vw;
+    }
+
+    div {
+      gap: 2vw;
+      margin-top: 1vw;
+    }
+
+    svg {
+      font-size: 8vw;
+    }
+  }
+}

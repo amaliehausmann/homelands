@@ -34,6 +34,7 @@
       background-color: transparent;
       margin-bottom: 0;
       padding-left: 2vw;
+      border: none;
       input {
         padding: 0.5vw;
         font-size: 1vw;
@@ -53,11 +54,93 @@
         display: flex;
         align-items: center;
         padding: 0.65vw;
+        cursor: pointer;
 
         svg {
           color: $white;
           font-size: 1vw;
         }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    padding: 1vw 6vw;
+
+    div:nth-of-type(1) {
+      margin-bottom: -3vw;
+      padding: 0.5vw 1vw 0 1vw;
+    }
+
+    div:nth-of-type(2) {
+      div {
+        margin-bottom: 0;
+        padding-left: 2vw;
+        input {
+          padding: 0.5vw;
+          font-size: 1.2vw;
+        }
+
+        ::placeholder {
+          font-size: 1.2vw;
+        }
+
+        span {
+          padding: 0.65vw;
+
+          svg {
+            font-size: 1.2vw;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    padding: 1vw 4vw;
+
+    div:nth-of-type(1) {
+      margin-bottom: -3vw;
+      padding: 0.5vw 1vw 0 1vw;
+    }
+
+    div:nth-of-type(2) {
+      div {
+        margin-bottom: 0;
+        padding-left: 2vw;
+        input {
+          padding: 0.5vw;
+          font-size: 1.5vw;
+        }
+
+        ::placeholder {
+          font-size: 1.5vw;
+        }
+
+        span {
+          padding: 0.65vw;
+
+          svg {
+            font-size: 1.6vw;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 1vw 4vw;
+
+    div:nth-of-type(1) {
+      display: none;
+    }
+
+    div:nth-of-type(2) {
+      display: block;
+      margin: auto;
+
+      div{
+        display: none;
       }
     }
   }

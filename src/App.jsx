@@ -6,6 +6,7 @@ import { Login } from "./pages/Login";
 import { UserContextProvider } from "./context/userContext";
 import { Listings } from "./pages/Listings";
 import { ListingDetails } from "./pages/ListingDetails";
+import { PageNotFound } from "./pages/PageNotFound";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/boliger" element={<Listings />}></Route>
               <Route path="/boliger/search/:keyword" element={<Listings />}></Route>
               <Route path="/boliger/:id" element={<ListingDetails/>}></Route>
+              <Route path="/*" element={<PageNotFound/>}></Route>
             </Route>
           </Routes>
         </BrowserRouter>

@@ -2,16 +2,16 @@
   margin-top: 3vw;
   width: 75%;
 
-  article{
+  article {
     display: flex;
     justify-content: space-between;
 
     padding-bottom: 1vw;
-    article{
+    article {
       display: block;
     }
   }
-  button{
+  button {
     background-color: black;
     color: white;
     padding: 1vw 2vw;
@@ -19,8 +19,8 @@
     border: none;
     height: 50%;
 
-    &:hover{
-      background-color: #AF7627;
+    &:hover {
+      background-color: #af7627;
       transition: all 0.3s ease;
     }
   }
@@ -50,6 +50,88 @@
     border-top: none;
     h3 {
       font-weight: 900;
+    }
+  }
+
+  @media screen and (max-width: 1300px) {
+    margin-top: 3vw;
+    width: 80%;
+
+    article {
+      padding-bottom: 1vw;
+    }
+    button {
+      padding: 1vw 3vw;
+      height: 50%;
+    }
+
+    h2,
+    p {
+      margin-bottom: 1vw;
+    }
+    span {
+      padding: 1vw 0 1vw 0;
+    }
+
+    .actions {
+      padding-right: 4vw;
+      gap: 1vw;
+    }
+  }
+
+  @media screen and (max-width: 1050px) {
+    margin-top: 2vw;
+    width: 90%;
+
+    article {
+      padding-bottom: 2vw;
+    }
+    button {
+      padding: 1vw 3vw;
+      height: 50%;
+    }
+
+    h2,
+    p {
+      margin-bottom: 1vw;
+    }
+    span {
+      padding: 1.5vw 0 1.5vw 0;
+    }
+
+    .actions {
+      padding-right: 1vw;
+      gap: 2vw;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-top: 2vw;
+    width: 100%;
+
+    article {
+      padding-bottom: 2vw;
+    }
+    button {
+      padding: 2vw 5vw;
+      height: 50%;
+    }
+
+    h3 {
+      font-size: 4vw;
+    }
+
+    h2,
+    p {
+      margin-bottom: 1vw;
+    }
+    span {
+      padding: 3vw 0 3vw 0;
+    }
+
+    .actions {
+      padding-right: 1vw;
+      gap: 3vw;
     }
   }
 }
